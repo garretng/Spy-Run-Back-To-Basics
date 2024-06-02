@@ -16,6 +16,7 @@ public class IntelAnalyzerComponent : MonoBehaviour
     public Button revealTypeButton;
     public Button revealImageButton;
     public Button closeButton; // Button to close the analyze window
+    public Button sendToHoustonButton; // Button to send intel to Houston app
 
     private IntelItem intelItem;
 
@@ -53,6 +54,10 @@ public class IntelAnalyzerComponent : MonoBehaviour
         if (closeButton != null)
         {
             closeButton.onClick.AddListener(CloseWindow);
+        }
+        if (sendToHoustonButton != null)
+        {
+            sendToHoustonButton.onClick.AddListener(SendToHouston);
         }
     }
 
@@ -101,6 +106,13 @@ public class IntelAnalyzerComponent : MonoBehaviour
         }
     }
 
+    public void SendToHouston()
+    {
+        if (intelItem != null)
+        {
+            HoustonManager.Instance.ReceiveIntel(intelItem);
+        }
+    }
     public void CloseWindow()
     {
         Destroy(gameObject);
