@@ -118,3 +118,4 @@ public class IntelAnalyzerComponent : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
